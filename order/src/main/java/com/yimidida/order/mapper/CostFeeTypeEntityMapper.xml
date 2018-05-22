@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yimidida.order.mapper.CostFeeTypeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.yimidida.order.entity.CostFeeTypeEntity" >
+    <id column="fee_type_id" property="feeTypeId" jdbcType="BIGINT" />
+    <result column="fee_type" property="feeType" jdbcType="VARCHAR" />
+    <result column="fee_name" property="feeName" jdbcType="VARCHAR" />
+    <result column="system_level" property="systemLevel" jdbcType="BIT" />
+    <result column="is_market_flag" property="isMarketFlag" jdbcType="BIT" />
+    <result column="cost_type" property="costType" jdbcType="BIT" />
+    <result column="fee_cost_mode" property="feeCostMode" jdbcType="BIT" />
+    <result column="service_type_code" property="serviceTypeCode" jdbcType="VARCHAR" />
+    <result column="dept_reset_flag" property="deptResetFlag" jdbcType="BIT" />
+    <result column="hq_reset_flag" property="hqResetFlag" jdbcType="BIT" />
+    <result column="dept_add_flag" property="deptAddFlag" jdbcType="BIT" />
+    <result column="hq_add_flag" property="hqAddFlag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="record_version" property="recordVersion" jdbcType="DECIMAL" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="creater" property="creater" jdbcType="VARCHAR" />
+    <result column="creater_time" property="createrTime" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="modifier_time" property="modifierTime" jdbcType="TIMESTAMP" />
+    <result column="column1" property="column1" jdbcType="VARCHAR" />
+    <result column="column2" property="column2" jdbcType="VARCHAR" />
+    <result column="column3" property="column3" jdbcType="VARCHAR" />
+    <result column="is_whole_vehicle_flag" property="isWholeVehicleFlag" jdbcType="BIT" />
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List" >
+    fee_type_id, fee_type, fee_name, system_level, is_market_flag, cost_type, fee_cost_mode, 
+    service_type_code, dept_reset_flag, hq_reset_flag, dept_add_flag, hq_add_flag, remark, 
+    record_version, is_delete, creater, creater_time, modifier, modifier_time, column1, 
+    column2, column3, is_whole_vehicle_flag
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from stl_cost_fee_type
+    where fee_type_id = #{feeTypeId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from stl_cost_fee_type
+    where fee_type_id = #{feeTypeId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insertSelective" parameterType="com.yimidida.order.entity.CostFeeTypeEntity" >
+    insert into stl_cost_fee_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="feeTypeId != null" >
+        fee_type_id,
+      </if>
+      <if test="feeType != null" >
+        fee_type,
+      </if>
+      <if test="feeName != null" >
+        fee_name,
+      </if>
+      <if test="systemLevel != null" >
+        system_level,
+      </if>
+      <if test="isMarketFlag != null" >
+        is_market_flag,
+      </if>
+      <if test="costType != null" >
+        cost_type,
+      </if>
+      <if test="feeCostMode != null" >
+        fee_cost_mode,
+      </if>
+      <if test="serviceTypeCode != null" >
+        service_type_code,
+      </if>
+      <if test="deptResetFlag != null" >
+        dept_reset_flag,
+      </if>
+      <if test="hqResetFlag != null" >
+        hq_reset_flag,
+      </if>
+      <if test="deptAddFlag != null" >
+        dept_add_flag,
+      </if>
+      <if test="hqAddFlag != null" >
+        hq_add_flag,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="recordVersion != null" >
+        record_version,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
+      <if test="createrTime != null" >
+        creater_time,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modifierTime != null" >
+        modifier_time,
+      </if>
+      <if test="column1 != null" >
+        column1,
+      </if>
+      <if test="column2 != null" >
+        column2,
+      </if>
+      <if test="column3 != null" >
+        column3,
+      </if>
+      <if test="isWholeVehicleFlag != null" >
+        is_whole_vehicle_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="feeTypeId != null" >
+        #{feeTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="feeType != null" >
+        #{feeType,jdbcType=VARCHAR},
+      </if>
+      <if test="feeName != null" >
+        #{feeName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemLevel != null" >
+        #{systemLevel,jdbcType=BIT},
+      </if>
+      <if test="isMarketFlag != null" >
+        #{isMarketFlag,jdbcType=BIT},
+      </if>
+      <if test="costType != null" >
+        #{costType,jdbcType=BIT},
+      </if>
+      <if test="feeCostMode != null" >
+        #{feeCostMode,jdbcType=BIT},
+      </if>
+      <if test="serviceTypeCode != null" >
+        #{serviceTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptResetFlag != null" >
+        #{deptResetFlag,jdbcType=BIT},
+      </if>
+      <if test="hqResetFlag != null" >
+        #{hqResetFlag,jdbcType=BIT},
+      </if>
+      <if test="deptAddFlag != null" >
+        #{deptAddFlag,jdbcType=BIT},
+      </if>
+      <if test="hqAddFlag != null" >
+        #{hqAddFlag,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="recordVersion != null" >
+        #{recordVersion,jdbcType=DECIMAL},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createrTime != null" >
+        #{createrTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierTime != null" >
+        #{modifierTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="column1 != null" >
+        #{column1,jdbcType=VARCHAR},
+      </if>
+      <if test="column2 != null" >
+        #{column2,jdbcType=VARCHAR},
+      </if>
+      <if test="column3 != null" >
+        #{column3,jdbcType=VARCHAR},
+      </if>
+      <if test="isWholeVehicleFlag != null" >
+        #{isWholeVehicleFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  
+ 
+ 
+  <update id="updateByPrimaryKeySelective" parameterType="com.yimidida.order.entity.CostFeeTypeEntity" >
+    update stl_cost_fee_type
+    <set >
+      <if test="feeType != null" >
+        fee_type = #{feeType,jdbcType=VARCHAR},
+      </if>
+      <if test="feeName != null" >
+        fee_name = #{feeName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemLevel != null" >
+        system_level = #{systemLevel,jdbcType=BIT},
+      </if>
+      <if test="isMarketFlag != null" >
+        is_market_flag = #{isMarketFlag,jdbcType=BIT},
+      </if>
+      <if test="costType != null" >
+        cost_type = #{costType,jdbcType=BIT},
+      </if>
+      <if test="feeCostMode != null" >
+        fee_cost_mode = #{feeCostMode,jdbcType=BIT},
+      </if>
+      <if test="serviceTypeCode != null" >
+        service_type_code = #{serviceTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptResetFlag != null" >
+        dept_reset_flag = #{deptResetFlag,jdbcType=BIT},
+      </if>
+      <if test="hqResetFlag != null" >
+        hq_reset_flag = #{hqResetFlag,jdbcType=BIT},
+      </if>
+      <if test="deptAddFlag != null" >
+        dept_add_flag = #{deptAddFlag,jdbcType=BIT},
+      </if>
+      <if test="hqAddFlag != null" >
+        hq_add_flag = #{hqAddFlag,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="recordVersion != null" >
+        record_version = #{recordVersion,jdbcType=DECIMAL},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="creater != null" >
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createrTime != null" >
+        creater_time = #{createrTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierTime != null" >
+        modifier_time = #{modifierTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="column1 != null" >
+        column1 = #{column1,jdbcType=VARCHAR},
+      </if>
+      <if test="column2 != null" >
+        column2 = #{column2,jdbcType=VARCHAR},
+      </if>
+      <if test="column3 != null" >
+        column3 = #{column3,jdbcType=VARCHAR},
+      </if>
+      <if test="isWholeVehicleFlag != null" >
+        is_whole_vehicle_flag = #{isWholeVehicleFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where fee_type_id = #{feeTypeId,jdbcType=BIGINT}
+  </update>
+</mapper>
